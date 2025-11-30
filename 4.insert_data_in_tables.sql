@@ -67,3 +67,24 @@ VALUES
 	('WST 211','Mathematical Statistics 211',24,'Elective module'),
 	('WST 212','Applications in data science 212',12,'Elective module'),
 	('WST 221','Mathematical statistics 221',24,'Elective module');
+
+
+INSERT INTO [UniversityStagingDB].[dbo].[Year3Modules]  (
+	ModuleCode ,
+	ModuleName,
+	Credits ,
+	Category)
+
+VALUES
+
+('COS 301', 'Software engineering 301', 27.00, 'Core modules'),
+('COS 330', 'Computer security and ethics 330', 18.00, 'Core modules'),
+('COS 332', 'Computer networks 332', 18.00, 'Core modules'),
+('COS 333', ' Programming languages 333', 18.00, 'Core modules'),
+('COS 341', 'Compiler construction 341', 18.00, 'Core modules'),
+('COS 314', 'Artificial intelligence 314', 18.00, 'Elective modules'),
+('COS 326', ' Database systems 326', 18.00, 'Elective modules'),
+('COS 344', 'Computer graphics 344', 18.00, 'Elective modules'),
+('IMY 310', 'Human-computer interaction 310',  25.00, 'Elective modules'),
+('IMY 320', ' Multimedia 320', 25.00, 'Elective modules'),
+('STK 353', ' The science of data analytics 353', 18.00, 'Elective modules');
