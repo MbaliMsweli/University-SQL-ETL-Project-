@@ -45,3 +45,25 @@ VALUES
 ('STK 120', 'Statistics 120', 13.00, 'Elective modules'),
 ('WST 111', 'Mathematical statistics 111', 16.00, 'Elective modules'),
 ('WST 121', 'Mathematical statistics 121', 16.00, 'Elective modules');
+
+
+INSERT INTO [UniversityStagingDB].[dbo].[Year2Modules]  (
+	ModuleCode ,
+	ModuleName,
+	Credits ,
+	Category)
+
+VALUES
+	('JCP 202','Community-based project 202',8,'Fundamental module'),
+	('COS 212','Data structures and algorithm 212',16,'Core module'),
+	('COS 214','Software modelling 214',16,'Core module'),
+	('COS 216','Netcentric computer sysytems 216',16,'Core module'),
+	('COS 221','Introduction to database systems 216',16,'Core module'),
+	('COS 226','Concurrent systems 226',16,'Core module'),
+	('COS 284','Computer organisation and architecture 284',16,'Core module'),
+	('WTW 285','Discrete strucure 285',12,'Core module'),
+	('STK 210','Statistic 210',20,'Elective module'),
+	('STK 220','Statistics 220',20,'Elective module'),
+	('WST 211','Mathematical Statistics 211',24,'Elective module'),
+	('WST 212','Applications in data science 212',12,'Elective module'),
+	('WST 221','Mathematical statistics 221',24,'Elective module');
