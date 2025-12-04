@@ -66,3 +66,27 @@ HAVING
 
 
 ----Combine all modules from all years using UNION ALL.
+
+-- 1. Create the new combined table
+CREATE TABLE [UniversityDW].[dbo].CombinedDataTable (
+   [CDT_ID] [int] IDENTITY(1,1) NOT NULL,
+	[ModuleCode] [varchar](50) NULL,
+	[ModuleName] [varchar](500) NULL,
+	[Credits] [int] NULL,
+	[Category] [varchar](500) NULL,
+	[LoadDate] [datetime2](7) NULL,
+);
+
+-- 2. Insert data from the three source tables using UNION ALL
+INSERT INTO [UniversityDW].[dbo].[CombinedDataTable](
+      [ModuleCode],
+      [ModuleName],
+      [Credits],
+      [Category],
+      [LoadDate])
+SELECT [ModuleCode], [ModuleName], [Credits],[Category],[LoadDate]FROM [UniversityDW].[dbo].[DW_Year1Modules]
+UNION ALL
+SELECT [ModuleCode], [ModuleName], [Credits],[Category],[LoadDate] FROM [UniversityDW].[dbo].[DW_Year2Modules]
+UNION ALL
+SELECT [ModuleCode],[ModuleName], [Credits],[Category], [LoadDate] FROM [UniversityDW].[dbo].[DW_Year3Modules];
+
