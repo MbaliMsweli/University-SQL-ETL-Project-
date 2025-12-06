@@ -41,7 +41,7 @@ CREATE TABLE Year2Modules(
 	DateInserted DATETIME2 DEFAULT CURRENT_TIMESTAMP);
 
 
--- CREATE TABLE: Year3Modules
+--- CREATE TABLE: Year3Modules
 
 IF NOT EXISTS (
     SELECT * FROM sys.objects 
