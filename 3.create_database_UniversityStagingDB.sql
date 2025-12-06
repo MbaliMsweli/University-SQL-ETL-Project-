@@ -24,7 +24,7 @@ CREATE TABLE Year1Modules(
 	Category varchar(500) NULL,
 	DateInserted DATETIME2 DEFAULT CURRENT_TIMESTAMP);
 
--- CREATE TABLE: Year1Modules
+--- CREATE TABLE: Year1Modules
 
 IF NOT EXISTS (
     SELECT * FROM sys.objects 
