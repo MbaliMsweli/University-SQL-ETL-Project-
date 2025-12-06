@@ -1,3 +1,5 @@
+---INSERT DATA INTO TABLE : UniverisityStagingDB.dbo.Year1Modules
+
 INSERT INTO [UniversityStagingDB].[dbo].[Year1Modules]  (
 	ModuleCode ,
 	ModuleName,
@@ -46,7 +48,7 @@ VALUES
 ('WST 111', 'Mathematical statistics 111', 16.00, 'Elective modules'),
 ('WST 121', 'Mathematical statistics 121', 16.00, 'Elective modules');
 
-
+---INSERT DATA INTO TABLE : UniverisityStagingDB.dbo.Year2Modules
 INSERT INTO [UniversityStagingDB].[dbo].[Year2Modules]  (
 	ModuleCode ,
 	ModuleName,
@@ -68,6 +70,7 @@ VALUES
 	('WST 212','Applications in data science 212',12,'Elective module'),
 	('WST 221','Mathematical statistics 221',24,'Elective module');
 
+---INSERT DATA INTO TABLE : UniverisityStagingDB.dbo.Year3Modules
 
 INSERT INTO [UniversityStagingDB].[dbo].[Year3Modules]  (
 	ModuleCode ,
