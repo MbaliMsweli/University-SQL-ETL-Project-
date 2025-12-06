@@ -7,13 +7,13 @@ INSERT INTO [UniversityDW].[dbo].[DW_Year1Modules] (
 	Category,
 	LoadDate)
 SELECT
-   StagingTable.[ModuleCode],
-   StagingTable.[ModuleName],
-   StagingTable.[Credits],
-   StagingTable.[Category],
-    StagingTable.[DateInserted]
+   S.[ModuleCode],
+   S.[ModuleName],
+   S.[Credits],
+   S.[Category],
+   S.[DateInserted]
 FROM
-    [UniversityStagingDB].[dbo].[Year1Modules] AS StagingTable
+    [UniversityStagingDB].[dbo].[Year1Modules] AS S
 WHERE NOT EXISTS (
     SELECT 1
     FROM[UniversityDW].[dbo].[DW_Year1Modules] AS DWH
