@@ -10,7 +10,7 @@ CREATE DATABASE UniversityDW
 END
 
 ---CREATE TABLE: UniversityDW.dbo.DW_Year1Modules
-
+USE UniversityDW
 IF NOT EXISTS (
     SELECT * FROM sys.objects 
     WHERE object_id = OBJECT_ID('UniversityDW.dbo.DW_Year1Modules') 

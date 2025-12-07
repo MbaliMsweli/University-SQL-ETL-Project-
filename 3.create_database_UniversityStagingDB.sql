@@ -1,6 +1,5 @@
 ---CREATE DATABASE: UniversityStagingDB
 
-USE [master]
 IF NOT EXISTS (
 SELECT name FROM sys.databases 
 WHERE name = 'UniversityStagingDB')
@@ -10,7 +9,7 @@ END
 
 
 -- CREATE TABLE: Year1Modules
-
+USE UniversityStagingDB
 IF NOT EXISTS (
     SELECT * FROM sys.objects 
     WHERE object_id = OBJECT_ID('UniversityStagingDB.dbo.Year1Modules') 

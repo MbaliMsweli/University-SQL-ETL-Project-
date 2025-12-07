@@ -1,0 +1,12 @@
+﻿<?xml version="1.0"?>
+<DTS:ConnectionManager xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:ObjectName="DESKTOP-3P95FD8_SQLEXPRESS"
+  DTS:DTSID="{91126201-2E17-407E-AF4F-A0436099357E}"
+  DTS:CreationName="OLEDB">
+  <DTS:ObjectData>
+    <DTS:ConnectionManager
+      DTS:ConnectRetryCount="1"
+      DTS:ConnectRetryInterval="5"
+      DTS:ConnectionString="Data Source=DESKTOP-3P95FD8\SQLEXPRESS;Provider=SQLOLEDB.1;Integrated Security=SSPI;Application Name=SSIS-University_Pipeline_Project-{91126201-2E17-407E-AF4F-A0436099357E}DESKTOP-3P95FD8\SQLEXPRESS;Auto Translate=False;" />
+  </DTS:ObjectData>
+</DTS:ConnectionManager>

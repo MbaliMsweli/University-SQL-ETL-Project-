@@ -1,4 +1,5 @@
 
+
  -----Inserting data in DW_Year1Modules Table----
 INSERT INTO [UniversityDW].[dbo].[DW_Year1Modules] (
 	ModuleCode ,
@@ -17,8 +18,10 @@ FROM
 WHERE NOT EXISTS (
     SELECT 1
     FROM[UniversityDW].[dbo].[DW_Year1Modules] AS DWH
-    WHERE DWH.DW_ID = StagingTable.ID
+    WHERE DWH.DW_ID = S.ID
+	);
 
+	GO
     -----Inserting data in DW_Year2Modules Table----
 INSERT INTO [UniversityDW].[dbo].[DW_Year2Modules] (
 	ModuleCode ,
@@ -38,7 +41,9 @@ WHERE NOT EXISTS (
     SELECT 1
     FROM[UniversityDW].[dbo].[DW_Year2Modules] AS DWH
     WHERE DWH.DW_ID = S.ID
+	);
 
+	GO
  -----Inserting data in DW_Year3Modules Table----
 INSERT INTO [UniversityDW].[dbo].[DW_Year3Modules] (
 	ModuleCode ,
@@ -58,3 +63,4 @@ WHERE NOT EXISTS (
     SELECT 1
     FROM[UniversityDW].[dbo].[DW_Year3Modules] AS DWH
     WHERE DWH.DW_ID = S.ID
+	);

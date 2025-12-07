@@ -1,0 +1,22 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.14.36623.8 d17.14
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{C9674DCB-5085-4A16-B785-4C70DD1589BD}") = "University_Pipeline_Project", "University_Pipeline_Project.dtproj", "{994F333B-F3B5-0007-B021-60155BFB8793}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Development|Default = Development|Default
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{994F333B-F3B5-0007-B021-60155BFB8793}.Development|Default.ActiveCfg = Development
+		{994F333B-F3B5-0007-B021-60155BFB8793}.Development|Default.Build.0 = Development
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {7F3F7F10-CF65-40F7-A4A9-ECD51C2B6237}
+	EndGlobalSection
+EndGlobal
