@@ -18,7 +18,7 @@ FROM
 WHERE NOT EXISTS (
     SELECT 1
     FROM[UniversityDW].[dbo].[DW_Year1Modules] AS DWH
-    WHERE DWH.DW_ID = S.ID
+    WHERE DWH.ModuleCode = S.ModuleCode
 	);
 
 	GO
@@ -40,7 +40,7 @@ FROM
 WHERE NOT EXISTS (
     SELECT 1
     FROM[UniversityDW].[dbo].[DW_Year2Modules] AS DWH
-    WHERE DWH.DW_ID = S.ID
+    WHERE DWH.ModuleCode = S.ModuleCode
 	);
 
 	GO
@@ -62,5 +62,5 @@ FROM
 WHERE NOT EXISTS (
     SELECT 1
     FROM[UniversityDW].[dbo].[DW_Year3Modules] AS DWH
-    WHERE DWH.DW_ID = S.ID
+    WHERE DWH.ModuleCode = S.ModuleCode
 	);
