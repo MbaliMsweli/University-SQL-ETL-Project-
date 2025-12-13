@@ -18,7 +18,7 @@ BEGIN
 END
 GO
 
-EXEC Year1Modules_CreateTable;
+EXEC[UniversityStagingDB].[dbo].[Year1Modules_CreateTable];
 GO
 
 
@@ -42,7 +42,7 @@ BEGIN
 END
 GO
 
-EXEC Year2Modules_CreateTable;
+EXEC EXEC[UniversityStagingDB].[dbo].[Year2Modules_CreateTable];
 GO
 
 
@@ -65,5 +65,5 @@ BEGIN
 END
 GO
 
-EXEC Year3Modules_CreateTable;
+EXEC EXEC[UniversityStagingDB].[dbo].[Year3Modules_CreateTable];
 GO

@@ -16,7 +16,7 @@ BEGIN
 END
 GO
 
-EXEC Year1Modules_DWCreateTable;
+EXEC[UniversityDW].dbo.Year1Modules_DWCreateTable;
 GO
 
 
@@ -38,7 +38,7 @@ BEGIN
 END
 GO
 
-EXEC Year2Modules_DWCreateTable;
+EXEC[UniversityDW].dbo.Year2Modules_DWCreateTable;
 GO
 
 
@@ -60,5 +60,5 @@ BEGIN
 END
 GO
 
-EXEC Year3Modules_DWCreateTable;
+EXEC[UniversityDW].dbo.Year3Modules_DWCreateTable;
 GO

@@ -11,8 +11,8 @@
   DTS:LocaleID="7177"
   DTS:ObjectName="Package1"
   DTS:PackageType="5"
-  DTS:VersionBuild="28"
-  DTS:VersionGUID="{BED24B0A-FD3A-4A7A-A06A-350ADA142A0B}">
+  DTS:VersionBuild="32"
+  DTS:VersionGUID="{F68FA03A-05CA-4DCE-AB41-B5193D487890}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:Variables />
@@ -177,7 +177,7 @@
           Id="Package\create UniversityDW"
           TopLeft="40,243" />
         <NodeLayout
-          Size="185,45"
+          Size="214,42"
           Id="Package\create UniversityStagingDB"
           TopLeft="54.5,34.5" />
         <NodeLayout
@@ -216,30 +216,30 @@
         </EdgeLayout>
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint 1]"
-          TopLeft="147,79.5">
+          TopLeft="161.5,76.5">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="-19,28.5"
+              EndConnector="-33.5,31.5"
               Start="0,0"
-              End="-19,21">
+              End="-33.5,24">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,10.25" />
+                    End="0,11.75" />
                   <mssgle:CubicBezierSegment
-                    Point1="0,10.25"
-                    Point2="0,14.25"
-                    Point3="-4,14.25" />
+                    Point1="0,11.75"
+                    Point2="0,15.75"
+                    Point3="-4,15.75" />
                   <mssgle:LineSegment
-                    End="-15,14.25" />
+                    End="-29.5,15.75" />
                   <mssgle:CubicBezierSegment
-                    Point1="-15,14.25"
-                    Point2="-19,14.25"
-                    Point3="-19,18.25" />
+                    Point1="-29.5,15.75"
+                    Point2="-33.5,15.75"
+                    Point3="-33.5,19.75" />
                   <mssgle:LineSegment
-                    End="-19,21" />
+                    End="-33.5,24" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
