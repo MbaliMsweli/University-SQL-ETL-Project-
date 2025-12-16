@@ -1,3 +1,5 @@
+---Creating stored procedure for insrting data in Year 1 Staging database
+
 CREATE PROCEDURE Insert_yr1_StagingDB
 AS
 BEGIN
@@ -52,3 +54,61 @@ VALUES
 END
 
 EXEC Insert_yr1_StagingDB;
+
+---Creating stored procedure for insrting data in Year 2 Staging database
+CREATE PROCEDURE Insert_yr2_StagingDB
+AS
+BEGIN
+INSERT INTO [UniversityStagingDB].[dbo].[Year2Modules]  (
+	ModuleCode ,
+	ModuleName,
+	Credits ,
+	Category)
+
+VALUES
+	('JCP 202','Community-based project 202',8,'Fundamental module'),
+	('COS 212','Data structures and algorithm 212',16,'Core module'),
+	('COS 214','Software modelling 214',16,'Core module'),
+	('COS 216','Netcentric computer sysytems 216',16,'Core module'),
+	('COS 221','Introduction to database systems 216',16,'Core module'),
+	('COS 226','Concurrent systems 226',16,'Core module'),
+	('COS 284','Computer organisation and architecture 284',16,'Core module'),
+	('WTW 285','Discrete strucure 285',12,'Core module'),
+	('STK 210','Statistic 210',20,'Elective module'),
+	('STK 220','Statistics 220',20,'Elective module'),
+	('WST 211','Mathematical Statistics 211',24,'Elective module'),
+	('WST 212','Applications in data science 212',12,'Elective module'),
+	('WST 221','Mathematical statistics 221',24,'Elective module');
+
+END
+
+EXEC Insert_yr2_StagingDB;
+
+---Creating stored procedure for insrting data in Year 3 Staging database
+
+CREATE PROCEDURE Insert_yr3_StagingDB
+AS
+BEGIN
+INSERT INTO [UniversityStagingDB].[dbo].[Year3Modules]  (
+	ModuleCode ,
+	ModuleName,
+	Credits ,
+	Category)
+
+VALUES
+
+('COS 301', 'Software engineering 301', 27.00, 'Core modules'),
+('COS 330', 'Computer security and ethics 330', 18.00, 'Core modules'),
+('COS 332', 'Computer networks 332', 18.00, 'Core modules'),
+('COS 333', ' Programming languages 333', 18.00, 'Core modules'),
+('COS 341', 'Compiler construction 341', 18.00, 'Core modules'),
+('COS 314', 'Artificial intelligence 314', 18.00, 'Elective modules'),
+('COS 326', ' Database systems 326', 18.00, 'Elective modules'),
+('COS 344', 'Computer graphics 344', 18.00, 'Elective modules'),
+('IMY 310', 'Human-computer interaction 310',  25.00, 'Elective modules'),
+('IMY 320', ' Multimedia 320', 25.00, 'Elective modules'),
+('STK 353', ' The science of data analytics 353', 18.00, 'Elective modules');
+
+END
+
+EXEC Insert_yr3_StagingDB;
