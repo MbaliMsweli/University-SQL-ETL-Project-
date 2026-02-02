@@ -105,3 +105,29 @@ Each record is loaded with a load date, allowing tracking of when the data was i
 
 This step completes the ETL flow by transforming raw staging data into structured, analysis-ready data stored in the data warehouse.
 
+# Stored Procedures SSIS Flow Explained
+
+After completing the ETL process, I created another SSIS package called stored_procedure.dtsx. This package is focused only on creating and managing stored procedures, separate from the main data loading flow.
+
+At this stage, the staging database and the data warehouse database were already created in earlier steps of the project. Because stored procedures must exist inside a database, I reused these existing databases instead of creating new ones.
+
+## How the Process Works
+
+The SSIS flow connects to the existing UniversityStagingDB and creates stored procedures that are responsible for creating staging tables for:
+
+Year 1 modules
+
+Year 2 modules
+
+Year 3 modules
+
+Once the staging stored procedures are in place, the flow continues by connecting to the existing UniversityDW database. Stored procedures are then created to handle the creation of data warehouse tables for:
+
+Year 1 modules
+
+Year 2 modules
+
+Year 3 modules
+
+Each step is linked in sequence to ensure the correct execution order.
+
