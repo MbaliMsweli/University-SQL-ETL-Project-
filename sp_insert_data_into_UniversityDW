@@ -1,0 +1,143 @@
+
+----Stored procedure for inserting year 1 data INTO Datawarehouse
+USE UniversityDW;
+GO
+
+-- Create procedure only if it does not exist
+IF NOT EXISTS (
+    SELECT 1
+    FROM sys.procedures
+    WHERE name = 'sp_Load_UniversityDW_YR1'
+)
+BEGIN
+    EXEC ('CREATE PROCEDURE dbo.sp_Load_UniversityDW_YR1 AS BEGIN SET NOCOUNT ON; END');
+END
+GO
+
+-- Alter the procedure with full logic
+CREATE OR ALTER PROCEDURE dbo.sp_Load_UniversityDW_YR1
+AS
+BEGIN
+    SET NOCOUNT ON;
+
+    INSERT INTO [UniversityDW].[dbo].[DW_Year1Modules] (
+        ModuleCode,
+        ModuleName,
+        Credits,
+        Category,
+        LoadDate
+    )
+    SELECT
+        S.ModuleCode,
+        S.ModuleName,
+        S.Credits,
+        S.Category,
+        S.DateInserted
+    FROM UniversityStagingDB.dbo.Year1Modules AS S
+    WHERE NOT EXISTS (
+        SELECT 1
+        FROM [UniversityDW].dbo.DW_Year1Modules AS D
+        WHERE D.ModuleCode = S.ModuleCode
+    );
+END;
+GO
+
+EXEC dbo.sp_Load_UniversityDW_YR1
+
+----Stored procedure for inserting year 2 data INTO Datawarehouse
+USE UniversityDW;
+GO
+
+-- Create procedure only if it does not exist
+IF NOT EXISTS (
+    SELECT 1
+    FROM sys.procedures
+    WHERE name = 'sp_Load_UniversityDW_YR2'
+)
+BEGIN
+    EXEC ('CREATE PROCEDURE dbo.sp_Load_UniversityDW_YR2 AS BEGIN SET NOCOUNT ON; END');
+END
+GO
+
+-- Alter the procedure with full logic
+CREATE OR ALTER PROCEDURE dbo.sp_Load_UniversityDW_YR2
+AS
+BEGIN
+    SET NOCOUNT ON;
+
+    INSERT INTO [UniversityDW].[dbo].[DW_Year2Modules] (
+        ModuleCode,
+        ModuleName,
+        Credits,
+        Category,
+        LoadDate
+    )
+    SELECT
+        S.ModuleCode,
+        S.ModuleName,
+        S.Credits,
+        S.Category,
+        S.DateInserted
+    FROM UniversityStagingDB.[dbo].[Year2Modules] AS S
+    WHERE NOT EXISTS (
+        SELECT 1
+        FROM [UniversityDW].dbo.DW_Year2Modules AS D
+        WHERE D.ModuleCode = S.ModuleCode
+    );
+
+END;
+GO
+
+
+EXEC dbo.sp_Load_UniversityDW_YR2
+
+
+
+----Stored procedure for inserting year 2 data INTO Datawarehouse
+
+
+USE UniversityDW;
+GO
+
+-- Create procedure only if it does not exist
+IF NOT EXISTS (
+    SELECT 1
+    FROM sys.procedures
+    WHERE name = 'sp_Load_UniversityDW_YR3'
+)
+BEGIN
+    EXEC ('CREATE PROCEDURE dbo.sp_Load_UniversityDW_YR3 AS BEGIN SET NOCOUNT ON; END');
+END
+GO
+
+-- Alter the procedure with full logic
+CREATE OR ALTER PROCEDURE dbo.sp_Load_UniversityDW_YR3
+AS
+BEGIN
+    SET NOCOUNT ON;
+
+    INSERT INTO [UniversityDW].[dbo].[DW_Year3Modules] (
+        ModuleCode,
+        ModuleName,
+        Credits,
+        Category,
+        LoadDate
+    )
+    SELECT
+        S.ModuleCode,
+        S.ModuleName,
+        S.Credits,
+        S.Category,
+        S.DateInserted
+    FROM UniversityStagingDB.[dbo].[Year3Modules] AS S
+    WHERE NOT EXISTS (
+        SELECT 1
+        FROM [UniversityDW].dbo.DW_Year3Modules AS D
+        WHERE D.ModuleCode = S.ModuleCode
+    );
+
+END;
+GO
+
+
+EXEC dbo.sp_Load_UniversityDW_YR3
