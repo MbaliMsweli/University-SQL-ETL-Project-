@@ -1,54 +1,133 @@
 # University SQL ETL Project
 
-This project demonstrates a full SQL ETL pipeline for a university system. It includes staging databases, data warehouse design, data transformation, analytical queries, and stored procedures used to create tables and insert data automatically.
+In this project, I built a complete SQL ETL (Extract, Transform, Load) pipeline for a university system. The goal was to take raw university module data, clean and structure it, and then load it into a data warehouse where it can be used for reporting and analysis.
 
-## Project Description
+This project shows how raw data moves step by step from its original form into a well-designed database that can answer real business questions.
 
-This project shows the process of building a university database system, starting from staging raw data to loading it into a data warehouse for reporting and analysis.
+# Project Overview
 
-### It includes:
+The project focuses on building a university database system starting from raw data and ending with clean, structured data in a data warehouse.
 
-- Creating the staging database
+## The main steps include:
 
-- Inserting data into staging tables
+Creating a staging database
 
-- Creating the data warehouse database
+Loading raw data into staging tables
 
-- Transforming and loading data into the warehouse
+Creating a data warehouse database
 
-- Writing queries to answer questions using the cleaned and structured data
+Transforming and loading data into warehouse tables
 
-### This project covers the key parts of a data pipeline used in data engineering and analytics.
+Writing queries to analyze the data
 
-# What is ETL?
+## Tools Used and How They Work Together
 
-## ETL stands for:
+- SSIS was used to design and control the ETL flow
+- SSMS (SQL Server Management Studio) was used to write and manage SQL code for databases and tables
 
-Extract – Take data from one place (raw data)
-Transform – Clean and structure the data so it is usable
-Load – Store the cleaned data into a database for reporting
+Although the ETL flow runs in SSIS, all databases and tables are created and managed in SSMS.
 
-# How the Project Works
+SSIS connects to SQL Server through connection managers. These connection managers point to the SQL Server instance where the databases are hosted.
 
-This repository contains SQL scripts that follow this pipeline:
+## How the Project Was Built
 
-### Create staging database
-A temporary database where raw data is first stored.
+I used SQL Server Integration Services (SSIS) to build this project. I first created an SSIS package called master.dtsx, which controls the entire workflow. This package handles database creation, table creation, and data loading.
 
-### Insert data into staging
-Load raw or unstructured data into staging tables.
+### To set up the databases and tables, I used Execute SQL Tasks. These tasks run SQL scripts that create:
 
-### Create data warehouse database
-A structured set of tables designed for reporting and analysis.
+The staging database
 
-### Insert data into the data warehouse
-Transform and load data from staging into the final database.
+Staging tables
 
-### Run queries on the data warehouse
-Show useful results such as student performance, courses taken, and other university metrics.
+Datawarehouse database
 
-# Stored Procedures for Creating Tables and Inserting Data
+Datawarehouse tables
 
-In this project, stored procedures are also used to create tables and insert data automatically.
-Instead of writing CREATE TABLE and INSERT statements many times, the logic is saved inside stored procedures and executed when needed.
-This makes the project more organized and closer to how real production systems work.
+#### All creation scripts use IF NOT EXISTS statements, which makes the process safe to run multiple times without causing errors.
+
+First create Staging Database 
+
+Inside the staging database, I created three tables:
+
+Year1Modules
+
+Year2Modules
+
+Year3Modules
+
+### Each table has the following columns:
+
+ID – Unique record identifier
+
+ModuleCode – Module reference code
+
+ModuleName – Name of the module
+
+Credits – Credit value
+
+Category – Module category
+
+DateInserted – Date and time the record was loaded
+
+After the tables were created, data was loaded into them using SSIS Data Flow Tasks.
+
+### Why a Staging Database Is Important
+
+The staging database is used to store raw and uncleaned data exactly as it comes from the source. No changes are made at this stage.
+
+#### This approach is important because it:
+
+Keeps the original data safe
+
+Allows validation and cleaning later
+
+Makes debugging and data checks easier
+
+Loading Data into the Data Warehouse
+
+After loading data into the staging database, I extended the SSIS flow by linking additional Execute SQL Tasks to build and populate the data warehouse.
+
+First, an Execute SQL Task was used to create the data warehouse database. This was followed by another SQL task responsible for creating the data warehouse tables. Just like the staging layer, IF NOT EXISTS statements were used to ensure the process is repeatable and does not fail if the objects already exist.
+
+Once the data warehouse structure was ready, I added another Execute SQL Task to load data from the staging tables into the data warehouse tables.
+
+## The insertion logic moves data from:
+
+Year1Modules → DW_Year1Modules
+
+Year2Modules → DW_Year2Modules
+
+Year3Modules → DW_Year3Modules
+
+During this process, only new records are inserted into the data warehouse. Existing records are skipped by checking for matching ModuleCode values. This helps prevent duplicate data and ensures the data warehouse remains clean and consistent.
+
+Each record is loaded with a load date, allowing tracking of when the data was inserted into the data warehouse.
+
+This step completes the ETL flow by transforming raw staging data into structured, analysis-ready data stored in the data warehouse.
+
+# Stored Procedures SSIS Flow Explained
+
+After completing the ETL process, I created another SSIS package called stored_procedure.dtsx. This package is focused only on creating and managing stored procedures, separate from the main data loading flow.
+
+At this stage, the staging database and the data warehouse database were already created in earlier steps of the project. Because stored procedures must exist inside a database, I reused these existing databases instead of creating new ones.
+
+## How the Process Works
+
+The SSIS flow connects to the existing UniversityStagingDB and creates stored procedures that are responsible for creating staging tables for:
+
+Year 1 modules
+
+Year 2 modules
+
+Year 3 modules
+
+Once the staging stored procedures are in place, the flow continues by connecting to the existing UniversityDW database. Stored procedures are then created to handle the creation of data warehouse tables for:
+
+Year 1 modules
+
+Year 2 modules
+
+Year 3 modules
+
+Each step is linked in sequence to ensure the correct execution order.
+
