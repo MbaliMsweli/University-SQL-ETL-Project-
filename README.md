@@ -131,3 +131,44 @@ Year 3 modules
 
 Each step is linked in sequence to ensure the correct execution order.
 
+# Stored Procedures SSIS Flow Explained
+
+After completing the main ETL process, I created a separate SSIS package called stored_procedure.dtsx.
+This package is focused only on creating and managing stored procedures, and it is kept separate from the main data loading flow to keep the project clean, organised , and easy to maintain.
+
+At this stage of the project, both the staging database and the data warehouse database had already been created in earlier steps. Since stored procedures must exist inside a database, I reused these existing databases instead of creating new ones.
+
+## How the Process Works
+
+The SSIS flow first connects to the existing UniversityStagingDB.
+In this step, stored procedures are created that are responsible for creating staging tables and inserting data into them for:
+
+Year 1 modules
+Year 2 modules
+Year 3 modules
+These staging stored procedures handle raw and unclean data, which is acceptable at this stage of the ETL process.
+
+Once the staging stored procedures are in place, the SSIS flow continues by connecting to the existing UniversityDW database.
+Here, another set of stored procedures is created to create data warehouse tables and insert clean data into them for:
+
+Year 1 modules
+Year 2 modules
+Year 3 modules
+The data warehouse stored procedures load data from the staging tables while applying rules such as removing duplicates and ensuring the data is structured correctly.
+
+## Execution Order
+
+Each step in the SSIS package is linked in sequence to make sure that:
+
+Staging tables and their data are created and loaded first
+Data warehouse tables are created and populated only after staging is ready
+This step-by-step execution order ensures the ETL process runs smoothly and consistently.
+
+# Conclusion
+
+This project demonstrates how to build a complete ETL process using SQL Server and SSIS. Raw data is first loaded into staging tables, where it can be messy and unclean. The data is then processed, cleaned, and inserted into the data warehouse, where it becomes structured and reliable for analysis.
+
+SSIS is used to control and automate the flow of the process, while SQL is used to create databases, tables, and stored procedures for inserting data into both staging and data warehouse tables. By separating the staging and data warehouse layers, the project ensures that raw data is handled correctly before being used for reporting.
+
+Overall, the project shows how a well-designed ETL process allows staging and data warehouse layers to work together to produce clean, trusted data that supports accurate reporting and better decision-making.
+
